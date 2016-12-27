@@ -12,6 +12,7 @@ var gulp = require('gulp'),
     changed = require('gulp-changed'),
     rev = require('gulp-rev'),
     browserSync = require('browser-sync'),
+    var ngannotate = require('gulp-ng-annotate');
     del = require('del');
 
 //gulp.task('jshint', function(){
@@ -43,7 +44,7 @@ gulp.task('usemin1', function () {
   return gulp.src('./app/Ristorante Con Fusion_ Menu.html')
       .pipe(usemin({
         css:[minifycss(),rev()],
-        js: [uglify(),rev()]
+        js: [ngannotate(),uglify(),rev()]
       }))
       .pipe(gulp.dest('dist/'));
 });
