@@ -66,4 +66,16 @@
      $scope.showDetails = !$scope.showDetails;
    };
 
- }]);
+ }])
+
+
+ .controller('ContactController', ['$scope', function($scope){
+   $scope.feedback = {mychannel:"", firstname:"", lastname:"", agree:false, email:""};
+
+ }])
+
+ .controller('FeedbackController', ['$scope', function($scope){
+
+ }])
+
+;
