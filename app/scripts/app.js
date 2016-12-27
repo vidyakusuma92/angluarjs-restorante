@@ -1,10 +1,18 @@
   'use strict';
   angular.module('confusionApp',[])
+<<<<<<< HEAD
    .controller('MenuController',['$scope', function($scope){
     $scope.tab = 1 ;
     $scope.filttext = "";
     $scope.showDetails=false;
     
+=======
+   .controller('MenuController' , ['$scope', function($scope){
+    $scope.tab = 1 ;
+    $scope.filttext = "";
+    $scope.showDetails = false;
+
+>>>>>>> bc60343dd5c5b3b8601f3e416b5c334075f8d5a9
     $scope.dishes=[
     {
       name:'Uthapizza',
@@ -43,6 +51,10 @@
       comment: ''
    }
    ]
+<<<<<<< HEAD
+=======
+
+>>>>>>> bc60343dd5c5b3b8601f3e416b5c334075f8d5a9
    $scope.select = function(setTab){
      $scope.tab = setTab;
 
@@ -58,12 +70,35 @@
 
    $scope.isSelected = function (checkTab) {
      return($scope.tab === checkTab);
+<<<<<<< HEAD
+=======
 
    };
+>>>>>>> bc60343dd5c5b3b8601f3e416b5c334075f8d5a9
 
+   $scope.toggleDetails = function(){
+     $scope.showDetails = !$scope.showDetails;
+   };
+
+<<<<<<< HEAD
    $scope.toggleDetails = function(){
      $scope.showDetails = !$scope.showDetails;
    }
 
 
  }]);
+=======
+ }])
+
+
+ .controller('ContactController', ['$scope', function($scope){
+   $scope.feedback = {mychannel:"", firstname:"", lastname:"", agree:false, email:""};
+
+ }])
+
+ .controller('FeedbackController', ['$scope', function($scope){
+
+ }])
+
+;
+>>>>>>> bc60343dd5c5b3b8601f3e416b5c334075f8d5a9
