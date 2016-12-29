@@ -1,18 +1,10 @@
   'use strict';
   angular.module('confusionApp',[])
-<<<<<<< HEAD
-   .controller('MenuController',['$scope', function($scope){
-    $scope.tab = 1 ;
-    $scope.filttext = "";
-    $scope.showDetails=false;
-    
-=======
    .controller('MenuController' , ['$scope', function($scope){
     $scope.tab = 1 ;
     $scope.filttext = "";
     $scope.showDetails = false;
 
->>>>>>> bc60343dd5c5b3b8601f3e416b5c334075f8d5a9
     $scope.dishes=[
     {
       name:'Uthapizza',
@@ -51,54 +43,63 @@
       comment: ''
    }
    ]
-<<<<<<< HEAD
-=======
-
->>>>>>> bc60343dd5c5b3b8601f3e416b5c334075f8d5a9
    $scope.select = function(setTab){
      $scope.tab = setTab;
 
-     if (setTab === 2)
+     if (setTab === 2){
               $scope.filtText = "appetizer";
-          else if (setTab === 3)
+            }
+          else if (setTab === 3){
               $scope.filtText = "mains";
-          else if (setTab === 4)
+            }
+          else if (setTab === 4){
               $scope.filtText = "dessert";
+            }
           else
               $scope.filtText = "";
    };
 
    $scope.isSelected = function (checkTab) {
      return($scope.tab === checkTab);
-<<<<<<< HEAD
-=======
 
    };
->>>>>>> bc60343dd5c5b3b8601f3e416b5c334075f8d5a9
 
    $scope.toggleDetails = function(){
      $scope.showDetails = !$scope.showDetails;
    };
 
-<<<<<<< HEAD
-   $scope.toggleDetails = function(){
-     $scope.showDetails = !$scope.showDetails;
-   }
-
-
- }]);
-=======
  }])
 
 
  .controller('ContactController', ['$scope', function($scope){
    $scope.feedback = {mychannel:"", firstname:"", lastname:"", agree:false, email:""};
 
+   var channels = [{value:"tel", label;"Tel."},
+                   {value:"Email", label:"Email" }];
+
+  $scope.channels = channels;
+  $scope.invalidChannelSelection = false;
+
  }])
 
  .controller('FeedbackController', ['$scope', function($scope){
 
- }])
+   $scope.sendFeedback = function(){
+     console.log($scope.feedback);
+     if ($scope.feedback.agree && ($scope.feedback.mychannel == "")&& !$scope.feedback.mychannel)
+     {
+       $scope.invalidChannelSelection = true;
+                    console.log('incorrect');
+                }
+                else {
+                    $scope.invalidChannelSelection = false;
+                    $scope.feedback = {mychannel:"", firstName:"", lastName:"",
+                                       agree:false, email:"" };
+                    $scope.feedback.mychannel="";
 
-;
->>>>>>> bc60343dd5c5b3b8601f3e416b5c334075f8d5a9
+                    $scope.feedbackForm.$setPristine();
+                    console.log($scope.feedback);
+                }
+   };
+
+ }]);
