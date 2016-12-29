@@ -27,17 +27,17 @@
 <body data-gr-c-s-loaded="true">
 
     <div class="container">
-        <div class="row row-content" ng-controller="dishDetailController as dctrl">
+        <div class="row row-content" ng-controller="DishDetailController">
             <div class="col-xs-12 col-sm-12">
               <div class="media" >
                 <div class="media-left media-middle">
                   <a href="#">
-                        <img class="media-object img-thumbnail" ng-src={{dctrl.dish.image}} alt="Uthappizza">
+                        <img class="media-object img-thumbnail" ng-src={{dish.image}} alt="Uthappizza">
                       </a>
               </div>
               <div class="media-body">
-                <h2 class="media-heading">{{dctrl.dish.name}}<span class="label label-danger label-xs">{{dctrl.dish.label}}</span><span class="badge">{{dctrl.dish.price | currency}}</span></h2>
-                <p>{{dctrl.dish.description}}</p>
+                <h2 class="media-heading">{{dish.name}}<span class="label label-danger label-xs">{{dish.label}}</span><span class="badge">{{dish.price | currency}}</span></h2>
+                <p>{{dish.description}}</p>
               </div>
               </div>
             </div>
@@ -60,76 +60,60 @@
   </div>
   </form>
           </div>
-          <div class="col-xs-9 col-xs-offset-1" ng-repeat="comment in dctrl.dish.comments | orderBy:value ">
+          <div class="col-xs-9 col-xs-offset-1" ng-repeat="comment in dish.comments | orderBy:value ">
        <blockquote>
          <p>{{comment.rating}}</p>
          <p>{{comment.comment}}</p>
            <footer>{{comment.author}}, {{comment.date | date : "MMM, d, y"}}
            </footer>
        </blockquote>
+
      </div>
+
+     <div class="col-xs-9 col-xs-offset-1" ng-controller="DishCommentController">
+
+       <form class="form-horizontal" name="commentForm" ng-submit="submitComment()" novalidate>
+         <div class="form-group" ng-class="{'has-error': commentForm.yourname.$error.requied && !commentForm.yourname.$printine}">
+           <label for="yourname" class="col-sm-2 control-label">Your Name:</label>
+         <div class="col-sm-7">
+           <input type="text" class="form-control" id="yourname" name="yourname" placeholder="Enter Your Name">
+           <span ng-show="commentForm.yourname.$error.required && !commentForm.yourname.$pristine" class="help-block">Your name is required.</span>
+         </div>
+         </div>
+         <div class="form-group">
+         <label for="guests" class="col-sm-2 control-label">Number of Stars:</label>
+           <div class="radio col-sm-6">
+             <label class="radio-inline"><input type="radio" name="optradio" value="1 Star" ng-model="rating">1</label>
+             <label class="radio-inline"><input type="radio" name="optradio" value="2 Stars" ng-model="rating">2</label>
+             <label class="radio-inline"><input type="radio" name="optradio" value="3 Stars" ng-model="rating">3</label>
+             <label class="radio-inline"><input type="radio" name="optradio" value="4 Stars" ng-model="rating">4</label>
+             <label class="radio-inline"><input type="radio" name="optradio" value="5 Stars" ng-model="rating" selected>5</label>
+           </div>
+       </div>
+
+       <div class="form-group">
+           <label for="feedback" class="col-sm-2 control-label">Your Feedback:</label>
+            <div class="col-sm-7">
+               <textarea class="form-control" id="feedback" name="feedback" rows="12"></textarea>
+           </div>
+       </div>
+
+       <div class="form-group">
+           <div class="col-sm-offset-2 col-sm-10">
+               <button type="submit" class="btn btn-primary">Post</button>
+           </div>
+       </div>
+
+       </form>
+     </div>
+
 
         </div>
 
     </div>
 
     <script src="../bower_components/angular/angular.min.js"></script>
-    <script>
-
-        var app = angular.module('confusionApp',[]);
-
-        app.controller('dishDetailController',['$scope' , function($scope) {
-            $scope.sorting = '-rating';
-
-            var dish={
-                          name:'Uthapizza',
-                          image: 'images/uthapizza.png',
-                          category: 'mains',
-                          label:'Hot',
-                          price:'4.99',
-                          description:'A unique combination of Indian Uthappam (pancake) and Italian pizza, topped with Cerignola olives, ripe vine cherry tomatoes, Vidalia onion, Guntur chillies and Buffalo Paneer.',
-                           comments: [
-                               {
-                                   rating:5,
-                                   comment:"Imagine all the eatables, living in conFusion!",
-                                   author:"John Lemon",
-                                   date:"2012-10-16T17:57:28.556094Z"
-                               },
-                               {
-                                   rating:4,
-                                   comment:"Sends anyone to heaven, I wish I could get my mother-in-law to eat it!",
-                                   author:"Paul McVites",
-                                   date:"2014-09-05T17:57:28.556094Z"
-                               },
-                               {
-                                   rating:3,
-                                   comment:"Eat it, just eat it!",
-                                   author:"Michael Jaikishan",
-                                   date:"2015-02-13T17:57:28.556094Z"
-                               },
-                               {
-                                   rating:4,
-                                   comment:"Ultimate, Reaching for the stars!",
-                                   author:"Ringo Starry",
-                                   date:"2013-12-02T17:57:28.556094Z"
-                               },
-                               {
-                                   rating:2,
-                                   comment:"It's your birthday, we're gonna party!",
-                                   author:"25 Cent",
-                                   date:"2011-12-02T17:57:28.556094Z"
-                               }
-
-                           ]
-                    };
-
-            this.dish = dish;
-
-
-
-        }]);
-
-    </script>
+    <script src="scripts/app.js"></script>
 
 
 
