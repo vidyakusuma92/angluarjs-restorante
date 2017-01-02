@@ -72,7 +72,7 @@
 
 
  .controller('ContactController', ['$scope', function($scope){
-   $scope.feedback = {mychannel:"", firstname:"", lastname:"", agree:false, email:""};
+   $scope.feedback = {mychannel:"", firstname:"", lastname:"", agree: false, email:""};
 
    var channels = [{value:"tel", label:"Tel."},
                    {value:"Email", label:"Email" }];
@@ -157,23 +157,23 @@
  .controller('DishCommentController', ['$scope', function($scope) {
 
      //Step 1: Create a JavaScript object to hold the comment from the form
-     $scope.mycomment = {rating:"5", comment="", author=""};
+
 
      $scope.submitComment = function () {
 
          //Step 2: This is how you record the date
-         $scope.mycomment.date= new Date().toISOString();
-         console.log($scope.mycomment);
+         //"...." = new Date().toISOString();
+
 
          // Step 3: Push your comment into the dish's comment array
-         $scope.dish.comments.push($scope.mycomment);
+         //$scope.dish.comments.push("....");
 
          //Step 4: reset your form to pristine
-         $scope.commentForm.$setpristine();
+
 
          //Step 5: reset your JavaScript object that holds your comment
 
-         $scope.mycomment = {rating:"5", comment="", author=""};
+
      }
  }])
 
