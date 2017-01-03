@@ -70,37 +70,45 @@
 
      </div>
 
-     <div class="col-xs-9 col-xs-offset-1" ng-controller="DishCommentController">
+
+       <div class="col-xs-9 col-xs-offset-1" ng-controller="DishCommentController">
+
+       <blockquote>
+         <p>{{comments.rating}}</p>
+         <p>{{comments.comment}}</p>
+         <footer>{{comments.yourname}}, {{comments.date | date: "MMM, d, y"}}</footer>
+
+       </blockquote>
 
        <form class="form-horizontal" name="commentForm" ng-submit="submitComment()" novalidate>
          <div class="form-group" ng-class="{'has-error': commentForm.yourname.$error.requied && !commentForm.yourname.$pristine}">
            <label for="yourname" class="col-sm-2 control-label">Your Name:</label>
          <div class="col-sm-7">
-           <input type="text" class="form-control" id="yourname" name="yourname" placeholder="Enter Your Name">
+           <input type="text" class="form-control" id="yourname" name="yourname" placeholder="Enter Your Name" ng-model="comments.yourname" required>
            <span ng-show="commentForm.yourname.$error.required && !commentForm.yourname.$pristine" class="help-block">Your name is required.</span>
          </div>
          </div>
-         <div class="form-group">
+         <div class="form-group" >
          <label for="guests" class="col-sm-2 control-label">Number of Stars:</label>
            <div class="radio col-sm-6">
-             <label class="radio-inline"><input type="radio" name="optradio" value="1 Star" ng-model="rating">1</label>
-             <label class="radio-inline"><input type="radio" name="optradio" value="2 Stars" ng-model="rating">2</label>
-             <label class="radio-inline"><input type="radio" name="optradio" value="3 Stars" ng-model="rating">3</label>
-             <label class="radio-inline"><input type="radio" name="optradio" value="4 Stars" ng-model="rating">4</label>
-             <label class="radio-inline"><input type="radio" name="optradio" value="5 Stars" ng-model="rating" selected>5</label>
+             <label class="radio-inline"><input type="radio" name="optradio" value="1" ng-model="comments.rating">1</label>
+             <label class="radio-inline"><input type="radio" name="optradio" value="2" ng-model="comments.rating">2</label>
+             <label class="radio-inline"><input type="radio" name="optradio" value="3" ng-model="comments.rating">3</label>
+             <label class="radio-inline"><input type="radio" name="optradio" value="4" ng-model="comments.rating">4</label>
+             <label class="radio-inline"><input type="radio" name="optradio" value="5" ng-model="comments.rating">5</label>
            </div>
        </div>
 
        <div class="form-group">
-           <label for="feedback" class="col-sm-2 control-label">Your Feedback:</label>
+           <label for="cmt" class="col-sm-2 control-label">Your Feedback:</label>
             <div class="col-sm-7">
-               <textarea class="form-control" id="feedback" name="feedback" rows="12"></textarea>
+               <textarea class="form-control" id="cmt" name="cmt" rows="12" ng-model="comments.comment" required></textarea>
            </div>
        </div>
 
        <div class="form-group">
            <div class="col-sm-offset-2 col-sm-10">
-               <button type="submit" class="btn btn-primary">Post</button>
+               <button type="submit" class="btn btn-primary"ng-disabled="commentForm.$invalid">Post</button>
            </div>
        </div>
 

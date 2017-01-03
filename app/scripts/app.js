@@ -157,22 +157,24 @@
  .controller('DishCommentController', ['$scope', function($scope) {
 
      //Step 1: Create a JavaScript object to hold the comment from the form
+     $scope.comments={yourname:"", rating:"5",comment:"",date:""};
 
 
      $scope.submitComment = function () {
 
          //Step 2: This is how you record the date
-         //"...." = new Date().toISOString();
+         $scope.comments.date= new Date().toISOString();
+         console.log($scope.comments);
 
 
          // Step 3: Push your comment into the dish's comment array
-         //$scope.dish.comments.push("....");
+         $scope.dish.comments.push($scope.comments);
 
          //Step 4: reset your form to pristine
-
+         $scope.commentForm.$setPristine();
 
          //Step 5: reset your JavaScript object that holds your comment
-
+         $scope.comments={yourname:"", rating:"5",comment:"",date:""};
 
      }
  }])
