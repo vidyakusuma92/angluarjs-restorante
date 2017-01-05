@@ -29,11 +29,11 @@ gulp.task('clean', function(){
 // default task
 
 gulp.task('default',['clean'], function(){
-  gulp.start('usemin','usemin1','imagemin','copyfonts');
+  gulp.start('usemin','imagemin','copyfonts');
 });
 
 gulp.task('usemin', function () {
-  return gulp.src('./app/index.html')
+  return gulp.src('./app/*.html')
       .pipe(usemin({
         css:[minifycss(),rev()],
         js: [uglify(),rev()]

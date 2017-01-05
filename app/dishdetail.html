@@ -46,7 +46,7 @@
 
        <div class="col-xs-9 col-xs-offset-1" ng-controller="DishCommentController">
 
-       <blockquote>
+       <blockquote ng-hide="commentForm.$invalid">
          <p>{{comments.rating}}</p>
          <p>{{comments.comment}}</p>
          <footer>{{comments.yourname}}, {{comments.date | date: "MMM, d, y"}}</footer>
@@ -54,7 +54,7 @@
        </blockquote>
 
        <form class="form-horizontal" name="commentForm" ng-submit="submitComment()" novalidate>
-         <div class="form-group" ng-class="{'has-error': commentForm.yourname.$error.requied && !commentForm.yourname.$pristine}">
+         <div class="form-group" ng-class="{ 'has-error': commentForm.yourname.$error.required && !commentForm.yourname.$pristine }">
            <label for="yourname" class="col-sm-2 control-label">Your Name:</label>
          <div class="col-sm-7">
            <input type="text" class="form-control" id="yourname" name="yourname" placeholder="Enter Your Name" ng-model="comments.yourname" required>

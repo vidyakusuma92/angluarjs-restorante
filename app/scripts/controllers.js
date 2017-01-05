@@ -68,10 +68,10 @@ $scope.invalidChannelSelection = false;
 }])
 
 
-.controller('DishDetailController',['$scope','menuFactory', function($scope, menuFactory) {
+.controller('DishDetailController',['$scope','$routeParams','menuFactory', function($scope, $routeParams ,menuFactory) {
    $scope.sorting = '-rating';
 
-   $scope.dish=menuFactory.getDish(1);
+   $scope.dish=menuFactory.getDish(parseInt($routeParams.id,10));
 
 
 }])
