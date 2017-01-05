@@ -1,0 +1,29 @@
+{
+  "name": "conFusion",
+  "description": "restaurant application",
+  "main": "Ristorante Con Fusion.html",
+  "keywords": [
+    "conFusion",
+    "Fusion",
+    "Restaurant"
+  ],
+  "authors": [
+    "Vidya"
+  ],
+  "license": "MIT",
+  "homepage": "\"\"",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "font-awesome": "^4.7.0",
+    "angular": "^1.6.0",
+    "angular-route": "^1.6.1"
+  }
+}

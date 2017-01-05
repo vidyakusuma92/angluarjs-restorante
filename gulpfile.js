@@ -12,7 +12,7 @@ var gulp = require('gulp'),
     changed = require('gulp-changed'),
     rev = require('gulp-rev'),
     browserSync = require('browser-sync'),
-    var ngannotate = require('gulp-ng-annotate');
+    ngannotate = require('gulp-ng-annotate');
     del = require('del');
 
 //gulp.task('jshint', function(){
@@ -33,21 +33,14 @@ gulp.task('default',['clean'], function(){
 });
 
 gulp.task('usemin', function () {
-  return gulp.src('./app/menu.html')
+  return gulp.src('./app/index.html')
       .pipe(usemin({
         css:[minifycss(),rev()],
         js: [uglify(),rev()]
       }))
       .pipe(gulp.dest('dist/'));
 });
-gulp.task('usemin1', function () {
-  return gulp.src('./app/Ristorante Con Fusion_ Menu.html')
-      .pipe(usemin({
-        css:[minifycss(),rev()],
-        js: [ngannotate(),uglify(),rev()]
-      }))
-      .pipe(gulp.dest('dist/'));
-});
+
 
 // Images
 gulp.task('imagemin', function() {
@@ -85,7 +78,7 @@ gulp.task('browser-sync', ['default'], function () {
    browserSync.init(files, {
       server: {
          baseDir: "dist",
-         index: "menu.html"
+         index: "index.html"
       }
    });
         // Watch any files in dist/, reload on change
