@@ -68,10 +68,10 @@ $scope.invalidChannelSelection = false;
 }])
 
 
-.controller('DishDetailController',['$scope','$routeParams','menuFactory', function($scope, $routeParams ,menuFactory) {
+.controller('DishDetailController',['$scope','$stateParams','menuFactory', function($scope, $stateParams ,menuFactory) {
    $scope.sorting = '-rating';
 
-   $scope.dish=menuFactory.getDish(parseInt($routeParams.id,10));
+   $scope.dish=menuFactory.getDish(parseInt($stateParams.id,10));
 
 
 }])
@@ -99,6 +99,19 @@ $scope.invalidChannelSelection = false;
        $scope.comments={yourname:"", rating:"5",comment:"",date:""};
 
    }
+}])
+
+.controller('IndexController', ['$scope', 'menuFactory', 'corporateFactory', function ($scope,menuFactory,corporateFactory) {
+  $scope.dish=menuFactory.getDish(0);
+  $scope.promo=menuFactory.getPromot(0);
+  $scope.lead = corporateFactory.getLeaders();
+
+
+}])
+
+.controller('AboutController',['$scope', 'corporateFactory' ,function ($scope,corporateFactory) {
+  $scope.leadership=corporateFactory.getLeader();
+
 }])
 
 ;

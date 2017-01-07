@@ -1,0 +1,68 @@
+
+<!-- saved from url=(0315)https://d3c33hcgiwev3.cloudfront.net/_27df4bcf1283b490a6bbb31cc743911e_home.html?Expires=1483833600&Signature=WkseowGytFoihhSLfy6frbIxjzY-4skOQkPomRRH4sgSxCpgiCuXEUwl-fzITLAxTHSpIJ-V2W5Iu7TPile3LEilJ529wvK6PcEjKIBnkWQ4oAFJ1kXUDIliNj9EapgFZg5URWxxwgzEhXBbYrHTcTIkpU499iwac3S9ANMq-~k_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A -->
+
+  <div class="container" ng-controller="IndexController">
+        <div class="row row-content">
+            <div class="col-xs-12 col-sm-3 col-sm-push-9">
+                <p style="padding:20px;"></p>
+                <h3 align="center">Our Lipsmacking Culinary Creations</h3>
+            </div>
+            <div class="col-xs-12 col-sm-9 col-sm-pull-3">
+                <div class="media">
+                  <div class="media-left media-middle">
+                    <a href="#">
+                      <img class="media-object img-thumbnail" ng-src={{dish.image}} alt="Uthappizza">
+                    </a>
+                  </div>
+                <div class="media-body">
+                  <h2 class="media-heading">{{dish.name}}<span class="label label-danger label-xs">{{dish.label}}</span> <span class="badge">{{dish.price | currency}}</span></h2>
+                  <p>{{dish.description}}</p>
+                  <p><a class="btn btn-primary btn-xs" href="#">More &raquo;</a></p>
+                </div>
+              </div>
+            </div>
+        </div>
+
+
+        <div class="row row-content">
+            <div class="col-xs-12 col-sm-3">
+                <p style="padding:20px;"></p>
+                <h3 align="center">This Month's Promotions</h3>
+            </div>
+            <div class="col-xs-12 col-sm-9">
+              <div class="media-body">
+                <h2>{{promo.name}} <span class="label label-danger label-xs">{{promo.label}}</span></h2>
+                <p>{{promo.description}}</p>
+                <p><a class="btn btn-primary btn-xs" href="#">More &raquo;</a></p>
+              </div>
+              <div class="media-right">
+                <a href="#">
+                  <p style="padding:10px;"></p>
+                  <img class="media-object img-thumbnail" ng-src={{promo.image}} alt="buffet">
+                </a>
+              </div>
+            </div>
+        </div>
+
+        <div class="row row-content">
+            <div class="col-xs-12 col-sm-3 col-sm-push-9">
+                <p style="padding:20px;"></p>
+                <h3 align="center">Meet our Culinary Specialists</h3>
+            </div>
+            <div class="col-xs-12 col-sm-9 col-sm-pull-3">
+              <div class="media">
+                <div class="media-left media-middle">
+                  <a href="#">
+                    <img class="media-object img-thumbnail" ng-src={{lead.image}} alt="alberto">
+                  </a>
+                </div>
+              <div class="media-body">
+                <h2 class="media-heading">{{lead.name}}</h2>
+                <h4>{{lead.designation}}</h4>
+                <p>{{lead.description}}</p>
+                <p><a class="btn btn-primary btn-xs" href="#">More &raquo;</a></p>
+              </div>
+            </div>
+            </div>
+        </div>
+    </div>
